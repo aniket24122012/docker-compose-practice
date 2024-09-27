@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   postgresql:
     container_name: ms_pg_sql
@@ -53,7 +51,7 @@ services:
     environment:
       ME_CONFIG_MONGODB_ADMINUSERNAME: aniket
       ME_CONFIG_MONGODB_ADMINPASSWORD: aniket
-      ME_CONFIG_MONGODB_SERVER: mongo_db  # Updated to reflect the correct service name
+      ME_CONFIG_MONGODB_SERVER: mongo_db
     ports:
       - "8081:8081"
     depends_on:
