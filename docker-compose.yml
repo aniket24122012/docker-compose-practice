@@ -9,7 +9,7 @@ services:
       POSTGRES_PASSWORD: aniket
       PGDATA: /var/lib/postgresql/data
     volumes:
-      - postgres_data:/var/lib/postgresql/data  # Separate volume for PostgreSQL data
+      - postgres_data:/var/lib/postgresql/data
     ports:
       - "5432:5432"
     networks:
@@ -24,7 +24,7 @@ services:
       PGADMIN_DEFAULT_PASSWORD: admin
       PGADMIN_CONFIG_SERVER_MODE: 'False'
     volumes:
-      - pgadmin_data:/var/lib/pgadmin  # Separate volume for pgAdmin data
+      - pgadmin_data:/var/lib/pgadmin
     ports:
       - "5050:80"
     depends_on:
@@ -40,7 +40,7 @@ services:
       MONGO_INITDB_ROOT_USERNAME: aniket
       MONGO_INITDB_ROOT_PASSWORD: aniket
     volumes:
-      - mongo_data:/data/db  # Separate volume for MongoDB data
+      - mongo_data:/data/db
     ports:
       - "27017:27017"
     networks:
@@ -53,7 +53,7 @@ services:
     environment:
       ME_CONFIG_MONGODB_ADMINUSERNAME: aniket
       ME_CONFIG_MONGODB_ADMINPASSWORD: aniket
-      ME_CONFIG_MONGODB_SERVER: mongo_db
+      ME_CONFIG_MONGODB_SERVER: mongo_db  # Updated to reflect the correct service name
     ports:
       - "8081:8081"
     depends_on:
@@ -98,7 +98,7 @@ services:
       - "1080:1080"
       - "1025:1025"
     networks:
-      - microservices-net  # MailDev also on the same network
+      - microservices-net
     restart: always
 
 networks:
@@ -106,6 +106,6 @@ networks:
     driver: bridge
 
 volumes:
-  postgres_data:  # Volume for PostgreSQL
-  pgadmin_data:   # Volume for pgAdmin
-  mongo_data:     # Volume for MongoDB
+  postgres_data:
+  pgadmin_data:
+  mongo_data:
