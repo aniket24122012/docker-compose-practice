@@ -51,14 +51,15 @@ services:
     environment:
       ME_CONFIG_MONGODB_ADMINUSERNAME: aniket
       ME_CONFIG_MONGODB_ADMINPASSWORD: aniket
-      ME_CONFIG_MONGODB_SERVER: mongo_db
+      ME_CONFIG_MONGODB_SERVER: mongo_db  # Update this to match the MongoDB service name
     ports:
       - "8081:8081"
     depends_on:
-      - mongo_db
+      - mongodb
     networks:
       - microservices-net
     restart: always
+
 
   zookeeper:
     container_name: zookeeper
