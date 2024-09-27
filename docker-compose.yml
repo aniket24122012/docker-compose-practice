@@ -1,3 +1,5 @@
+version: '3.8'  # Specify the version
+
 services:
   postgres:
     container_name: ms_pg_sql
@@ -5,7 +7,7 @@ services:
     environment:
       - POSTGRES_USER=aniket
       - POSTGRES_PASSWORD=aniket
-      - PGDATA=/data/postgres  # Removed the extra space after the equals sign
+      - PGDATA=/data/postgres
     volumes:
       - postgres:/data/postgres
     ports:
@@ -21,7 +23,7 @@ services:
       - MONGO_INITDB_ROOT_USERNAME=aniket
       - MONGO_INITDB_ROOT_PASSWORD=aniket
     volumes:
-      - mongo:/data
+      - mongo:/data/db  # Changed mount point to /data/db
     ports:
       - "27017:27017"
     networks:
