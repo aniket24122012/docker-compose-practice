@@ -55,7 +55,7 @@ services:
     ports:
       - "8081:8081"
     depends_on:
-      - mongodb
+      - mongo_db
     networks:
       - microservices-net
     restart: always
