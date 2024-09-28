@@ -17,8 +17,7 @@ services:
   pgadmin:
     container_name: ms_pgadmin
     image: dpage/pgadmin4
-    depends_on:
-      - postgres
+
     environment:
       PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL:-pgadmin4@pgadmin.org}
       PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD:-admin}
@@ -48,8 +47,6 @@ services:
     restart: always
     ports:
       - "8081:8081"
-    depends_on:
-      - mongo
     environment:
       ME_CONFIG_MONGODB_ADMINUSERNAME: aniket
       ME_CONFIG_MONGODB_ADMINPASSWORD: aniket
