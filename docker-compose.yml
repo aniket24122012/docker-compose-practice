@@ -38,8 +38,10 @@ services:
       ME_CONFIG_MONGODB_SERVER: mongo
     depends_on:
       - mongo
+    restart: on-failure
     ports:
       - "8081:8081"
+    entrypoint: /bin/sh -c "while ! nc -z mongo 27017; do sleep 1; done; exec mongo-express"
 
   maildev:
     image: maildev/maildev
